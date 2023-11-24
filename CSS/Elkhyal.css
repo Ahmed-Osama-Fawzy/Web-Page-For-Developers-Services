@@ -1,0 +1,885 @@
+/* Main Style Values */
+:root{
+    --MainColor:   #041014 ;
+    --SecondColor: #2596be ;
+    --ThirdColor:  #fdfdfd;
+    --FourtyColor: #698c99 ;
+    --ShadowColor: #d3eaf2 ;
+    --DarkBackGroundColor: hsl(0, 14%, 95%);
+    --Transtion:    0.5s;
+}
+*{
+    padding: 0;
+    margin: 0;
+    font-family:Arial, Helvetica, sans-serif;
+}
+html {
+    scroll-behavior: smooth;
+}
+.Container {
+    margin: auto;
+}
+/*Media Sizes*/
+@media (max-width: 800px) {
+    header .Container .Logo {
+        width: 80%;
+        padding: 10%;
+    }
+    header .Container > ul {
+        width: 100%;
+    }
+    .Landing .Container {
+        display: block !important;
+    }
+    .Landing .Container > div{
+        padding: 10%;
+        width: 80% ;
+    }
+}
+h1 {
+    margin: 60px calc(50% - 140px) !important;
+    text-align: center;
+}
+section {
+    padding-top:60px;
+}
+
+
+/* Start Header Style Formating */
+header{
+    background-color: var(--ThirdColor) ;
+    box-shadow: 0 7px 0  0 var(--ShadowColor);
+}
+header .Container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    position: relative;
+    padding: 20px;
+}
+header .Container .Logo {
+    color: var(--MainColor);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 72px;
+    font-size: 30px;
+    font-weight: bold;
+    text-decoration: none;
+}
+header .Container > ul {
+    display: flex;
+    list-style: none;
+}
+header .Container > ul > li > a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 72px;
+    position: relative;
+    padding: 0 25px;
+    text-decoration: none;
+    overflow: hidden;
+    color: var(--SecondColor);
+    font-size: 20px;
+}
+header .Container > ul > li > a::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    top: 0;
+    right:-100%;
+    height: 5%;
+    background-color: var(--FourtyColor) ;
+    transition: var(--Transtion);
+}
+header .Container > ul > li > a:hover {
+    color: var(--FourtyColor) ;
+}
+header .Container > ul > li > a:hover::before {
+    right: 0;
+}
+/* End Header Style Formating */
+/* Start Landing Style Formating */
+.Landing .Container {
+    height: calc(100vh - 72px);
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+.Landing::before{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: var(--DarkBackGroundColor);
+    left: 0;
+    top: 0;
+    z-index: -1;
+    transform: skewY(-7deg);
+    transform-origin: top left;
+}
+/*.Landing .Container > div:first-of-type {
+    margin: 50px;
+}*/
+.Landing .Container > div > h1 {
+    font-size: 35px;
+    font-weight: bold;
+}
+.Landing .Container > div > p {
+    color: var(--FourtyColor) ;
+    line-height: 1.7;
+    font-size: large;
+}
+.Landing .Container > div > img {
+    width: 90%;
+    height: 70%;
+    animation: Up-Down 5s infinite;
+    position: relative;
+}
+@keyframes Up-Down {
+    0% , 20% , 40% , 80% ,  100% {
+        transform: translateY(0);
+    }
+    20% , 60%{
+        transform: rotateY(180deg);
+    }
+}
+.Landing  .Container > a {
+    position: absolute;
+    left: 50%;
+    bottom: 10px;
+    color: var(--MainColor);
+    transition: var(--Transtion);
+    animation: Moving 1s infinite linear;
+}
+.Landing  .Container > a:hover {
+    color: var(--FourtyColor);
+}
+@keyframes Moving {
+    0% ,  100% {
+        bottom: 10;
+    }
+    50% {
+        bottom: 30px;
+        transform: rotateX(30deg);
+    }
+}
+/* End Landing Style Formating */
+
+/* Start Articles Formating*/
+.Articles {
+    margin-top: 200px;
+}
+.Articles .Container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 40px;
+}
+.Articles > h1{
+    position: relative;
+    margin: 60px calc(50% - 140px);
+    padding: 7px 20px;
+    color: var(--MainColor) ;
+    border: 3px solid var(--MainColor);
+    transition: var(--Transtion);
+}
+.Articles > h1:hover {
+    background-color: var(--SecondColor) ;
+    color: var(--ThirdColor) ;
+    border: none;
+}
+.Articles > h1::before , 
+.Articles > h1::after {
+    content: "";
+    position: absolute;
+    height: 15px;
+    width: 15px;
+    background-color: var(--SecondColor);
+    border-radius: 100%;
+    top: calc(50% - 5px);
+    transition:var(--Transtion);
+}
+.Articles > h1::before {
+    left: -25%;
+}
+.Articles > h1:hover::before {
+    left: 0;
+}
+.Articles > h1::after {
+    right: -25%;
+}
+.Articles > h1:hover::after  {
+    right: 0;
+}
+
+.Articles .Container > div {
+    background-color: var(--ThirdColor);
+    line-height: 1.7;
+    border-radius:15px ;
+    box-shadow: 10px 10px 15px var(--ShadowColor);
+    transition:var(--Transtion);
+}
+.Articles .Container > div:hover {
+    transform:  translate(0px,-20px) ;
+}
+.Articles .Container > div:hover  > i{
+    margin-left: calc(100% - 130px);
+}
+.Articles .Container > div img {
+    width: 100%;
+    height: 40%;
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+}
+.Articles .Container > div > h3 {
+    color: var(--MainColor);
+    padding:10px;
+}
+.Articles .Container > div > p {
+    color: var(--SecondColor);
+    padding:10px;
+}
+.Articles .Container > div > hr {
+    margin: 10px auto;
+    color: var(--SecondColor);
+}
+.Articles .Container > div > span {
+    color: var(--SecondColor);
+    padding: 10px;
+    font-weight: bold;
+}
+.Articles .Container > div > i {
+    margin-left: calc(100% - 135px);
+    color: var(--SecondColor);
+    transition: var(--Transtion);
+}
+/* End Articles Formating*/
+
+/* Start Of Gallrey Formating*/
+.Gallrey {
+    margin-top: 200px;
+    background-color: var(--DarkBackGroundColor);
+}
+.Gallrey .Container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 40px;
+}
+.Gallrey > h1{
+    position: relative;
+    margin: 60px calc(50% - 140px);
+    padding: 7px 20px;
+    color: var(--MainColor) ;
+    border: 3px solid var(--MainColor);
+    transition: var(--Transtion);
+}
+.Gallrey > h1:hover {
+    background-color: var(--SecondColor) ;
+    color: var(--ThirdColor) ;
+    border: none;
+}
+.Gallrey > h1::before , 
+.Gallrey > h1::after {
+    content: "";
+    position: absolute;
+    height: 15px;
+    width: 15px;
+    background-color: var(--SecondColor);
+    border-radius: 100%;
+    top: calc(50% - 5px);
+    transition:var(--Transtion);
+}
+.Gallrey > h1::before {
+    left: -25%;
+}
+.Gallrey > h1:hover::before {
+    left: 0;
+}
+.Gallrey > h1::after {
+    right: -25%;
+}
+.Gallrey > h1:hover::after  {
+    right: 0;
+}
+.Gallrey .Container > div {
+    padding: 15px;
+    background-color: var(--ThirdColor);
+    box-shadow: 10px 10px 15px var(--ShadowColor);
+    transition:var(--Transtion);
+    overflow: hidden;
+}
+.Gallrey .Container > div img {
+    width: 100%;
+    height: 100%;
+    transition:var(--Transtion);
+    position: relative;
+}
+/*.Gallrey .Container > div img::before{
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50% , -50%);
+    z-index: 2;
+    width: 0;
+    height: 0;
+    opacity: 0;
+    background-color: white;
+}
+.Gallrey .Container > div img:hover::before{
+    animation: Flashing 0.5s;
+}
+@keyframes Flashing{
+    0% , 40% {
+    opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        width: 200%;
+        height: 200%;
+    }
+}*/
+.Gallrey .Container > div img:hover {
+    transform: rotateZ(-10deg) scale(1.2);
+}
+/* End Of Gallarey Formating*/
+
+/* Start Of Features Formating*/
+.Features {
+    margin-top: 200px;
+}
+.Features .Container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 40px;
+}
+.Features > h1{
+    position: relative;
+    margin: 20px calc(50% - 140px);
+    padding: 7px 20px;
+    color: var(--MainColor) ;
+    border: 3px solid var(--MainColor);
+    transition: var(--Transtion);
+}
+.Features > h1:hover {
+    background-color: var(--SecondColor) ;
+    color: var(--ThirdColor) ;
+    border: none;
+}
+.Features > h1::before , 
+.Features > h1::after {
+    content: "";
+    position: absolute;
+    height: 15px;
+    width: 15px;
+    background-color: var(--SecondColor);
+    border-radius: 100%;
+    top: calc(50% - 5px);
+    transition:var(--Transtion);
+}
+.Features > h1::before {
+    left: -25%;
+}
+.Features > h1:hover::before {
+    left: 0;
+}
+.Features > h1::after {
+    right: -25%;
+}
+.Features > h1:hover::after  {
+    right: 0;
+}
+.Features .Container > div {
+    background-color: var(--ThirdColor);
+    box-shadow: 10px 10px 15px var(--ShadowColor);
+    transition:var(--Transtion);
+    overflow: hidden;
+    text-align: center;
+    line-height: 1.7;
+    height:900px;
+}
+.Features .Container > div > span {
+    overflow: hidden;
+    height: 100%;
+    position: relative;
+}
+.Features .Container > div > span::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    border-style: solid;
+    border-width: 125px 400px 50px 0;
+    border-color: transparent var(--ThirdColor) var(--ThirdColor);
+    transition: 8s;
+    z-index: 3;
+}
+.Features .Container > div > span > img {
+    width: 100%;
+    z-index: 1;
+}
+.Features .Container > div:hover > span:after {
+    animation: FullScreen 3s;
+    border-color: transparent hsl(0, 14%, 95% , 0%)hsl(0, 14%, 95%, 0%);
+}
+@keyframes FullScreen {
+     0%  { border-width: 125px 400px 50px 0;}
+     10% { border-width: 1000px 400px 50px 0;}
+     20% { border-width: 10000px 400px 50px 0;}
+     30% { border-width: 50000px 400px 50px 0;}
+     40% { border-width: 1000000px 400px 50px 0;}
+     50% { border-width: 7000000px 400px 50px 0;}
+     60% { border-width: 1000000px 400px 50px 0;}
+     70% { border-width: 50000px 400px 50px 0;}
+     80% { border-width: 10000px 400px 50px 0;}
+     90% { border-width: 1000px 400px 50px 0;}
+     100% {border-width: 125px 400px 50px 0;}
+}
+.Features .Container > div > h2{
+    border-bottom: 5px solid var(--SecondColor) ;
+    width: fit-content;
+    margin: 60px auto ;
+    font-size: 35px;
+    color: var(--MainColor);
+}
+.Features .Container > div > p {
+    color: var(--FourtyColor);
+    margin: 60px ;
+}
+.Features .Container > div > button {
+    padding: 10px 20px;
+    font-size: 22px;
+    background-color: transparent;
+    color: var(--SecondColor);
+    border: 2px solid var(--SecondColor);
+    border-radius: 5px;
+    transition: var(--Transtion);
+}
+.Features .Container > div:hover > button {
+    background-color: var(--SecondColor) ;
+    color: azure;
+}
+/* End Of Features Formating  */
+
+/* Start Of Testimonials Formating */
+.Testimonials {
+    margin-top: 200px;
+    background-color: var(--DarkBackGroundColor);
+}
+.Testimonials .Container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 40px;
+}
+.Testimonials > h1{
+    position: relative;
+    margin: 20px calc(50% - 140px);
+    padding: 7px 20px;
+    color: var(--MainColor) ;
+    border: 3px solid var(--MainColor);
+    transition: var(--Transtion);
+}
+.Testimonials > h1:hover {
+    background-color: var(--SecondColor) ;
+    color: var(--ThirdColor) ;
+    border: none;
+}
+.Testimonials > h1::before , 
+.Testimonials > h1::after {
+    content: "";
+    position: absolute;
+    height: 15px;
+    width: 15px;
+    background-color: var(--SecondColor);
+    border-radius: 100%;
+    top: calc(50% - 5px);
+    transition:var(--Transtion);
+}
+.Testimonials > h1::before {
+    left: -25%;
+}
+.Testimonials > h1:hover::before {
+    left: 0;
+}
+.Testimonials > h1::after {
+    right: -25%;
+}
+.Testimonials > h1:hover::after  {
+    right: 0;
+}
+.Testimonials > div {
+    background-color: var(--ThirdColor);
+    box-shadow: 10px 10px 15px var(--ShadowColor);
+    transition:var(--Transtion);
+    line-height: 1.7;
+    text-align: center;
+}
+.Testimonials .Container > div > img {
+    width: 100px;
+    height: 100px;
+    border-radius: 100%;
+    display: inline-block;
+    margin-top: -30px;
+    border:  15px solid var(--DarkBackGroundColor);
+}
+.Testimonials .Container > div > b {
+    display: block;
+    font-size: 20px;
+}
+.Testimonials .Container > div > div > i {
+    color: gold;
+}
+.Testimonials .Container > div > p:first-of-type {
+    color: var(--SecondColor);
+    margin: 10px 20px ;
+}
+.Testimonials .Container > div > p:last-of-type {
+    color: var(--FourtyColor);
+    margin: 15px 20px ;
+}
+/* End Of Testimonials Formating */
+
+/* Start Of TeamMembers Formating */
+.TeamMembers {
+    margin-top: 200px;
+}
+.TeamMembers .Container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 40px;
+}
+.TeamMembers  > h1{
+    position: relative;
+    margin: 20px calc(50% - 140px);
+    padding: 7px 20px;
+    color: var(--MainColor) ;
+    border: 3px solid var(--MainColor);
+    transition: var(--Transtion);
+}
+.TeamMembers > h1:hover {
+    background-color: var(--SecondColor) ;
+    color: var(--ThirdColor) ;
+    border: none;
+}
+.TeamMembers > h1::before , 
+.TeamMembers > h1::after {
+    content: "";
+    position: absolute;
+    height: 15px;
+    width: 15px;
+    background-color: var(--SecondColor);
+    border-radius: 100%;
+    top: calc(50% - 5px);
+    transition:var(--Transtion);
+}
+.TeamMembers > h1::before {
+    left: -25%;
+}
+.TeamMembers > h1:hover::before {
+    left: 0;
+}
+.TeamMembers > h1::after {
+    right: -25%;
+}
+.TeamMembers > h1:hover::after  {
+    right: 0;
+}
+.TeamMembers > div {
+    background-color: var(--DarkBackGroundColor);
+    box-shadow: 10px 10px 15px var(--ShadowColor);
+    transition:var(--Transtion);
+    line-height: 1.7;
+    border-radius: 40px;
+    transition: var(--Transtion);
+    margin: 50px;
+}
+.TeamMembers .Container > div:hover {
+    filter: grayscale();
+}
+.TeamMembers .Container > div > img {
+    float: left;
+    width: 85%;
+    transform: translate(-30px , 20px);
+    border-radius: 20px;
+}
+.TeamMembers .Container > div > nav {
+    float: left;
+    width: 5%;
+    display: flex;
+    flex-direction: column;
+    padding-right:5% ;
+    padding-top: calc(50% - 75px ) ;
+}
+.TeamMembers .Container > div > nav > a > i {
+    margin: 10px  auto ;
+    transition: var(--Transtion);
+    color: var(--SecondColor);
+}
+.TeamMembers .Container > div > h2 {
+    margin: 100% auto auto 20px;
+    color: var(--SecondColor);
+}
+.TeamMembers .Container > div > p {
+    margin: auto auto 20px 20px;
+    color: var(--FourtyColor);
+}
+/* End Of TeamMembers Formating */
+
+/* Start Of Services Formating */
+.Services {
+    margin-top: 200px;
+    background-color: var(--DarkBackGroundColor);
+}
+.Services .Container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 40px;
+    justify-content: space-around;
+}
+.Services > h1{
+    position: relative;
+    margin: 20px calc(50% - 140px);
+    padding: 7px 20px;
+    color: var(--MainColor) ;
+    border: 3px solid var(--MainColor);
+    transition: var(--Transtion);
+}
+.Services > h1:hover {
+    background-color: var(--SecondColor) ;
+    color: var(--ThirdColor) ;
+    border: none;
+}
+.Services > h1::before , 
+.Services > h1::after {
+    content: "";
+    position: absolute;
+    height: 15px;
+    width: 15px;
+    background-color: var(--SecondColor);
+    border-radius: 100%;
+    top: calc(50% - 5px);
+    transition:var(--Transtion);
+}
+.Services > h1::before {
+    left: -25%;
+}
+.Services > h1:hover::before {
+    left: 0;
+}
+.Services > h1::after {
+    right: -25%;
+}
+.Services > h1:hover::after  {
+    right: 0;
+}
+.Services .Container > div {
+    background-color: var(--ThirdColor);
+    box-shadow: 10px 10px 15px var(--ShadowColor);
+    line-height: 1.7;
+    transition: var(--Transtion);
+    position: relative;
+}
+.Services .Container > div:hover {
+    transform: translateY(-15px);
+}
+.Services .Container > div::before {
+    content: "";
+    position: absolute ;
+    top: -4px;
+    width: 0%;
+    height: 4px;
+    background-color: var(--SecondColor);
+    transition: var(--Transtion);
+}
+.Services .Container > div:hover::before {
+    width: 100%;
+}
+.Services .Container > div::after {
+    content: "";
+    position: absolute ;
+    right: 0;
+    bottom: -4px;
+    width: 0%;
+    height: 4px;
+    background-color: var(--SecondColor);
+    transition: var(--Transtion);
+}
+.Services .Container > div:hover::after {
+    width: 100%;
+}
+.Services .Container > div > i {
+    margin: 25px auto 0 auto;
+    color: var(--FourtyColor);
+    display: flex;
+    justify-content: center;
+}
+.Services .Container > div > h1 {
+    color: var(--SecondColor);
+    display: flex;
+    justify-content: center;
+}
+.Services .Container > div > span{
+    height: fit-content;
+    font-size: 30px;
+    padding: 9px 35px;
+    background-color: var(--SecondColor);
+    color: var(--ThirdColor);
+    transform: skewX(-20deg);
+    position: relative;
+}
+.Services .Container > div > span::after {
+    content: "";
+    transform: skewX(-30deg);
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 70px;
+    left: 85px;
+    background-color: var(--FourtyColor);
+    transition: var(--Transtion);
+}
+/* End Of Services Formating */
+
+/* Start Of Request_A_Discount Formating */
+.Request_A_Discount {
+    margin-top:200px ;
+    background-image: url("../images/discount-background1.jpg");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    position: relative;
+}
+.Request_A_Discount::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(211, 234, 242 , 0.5);
+    z-index: 2;
+}
+.Request_A_Discount .Container {
+    display: grid;
+    justify-content: space-around;
+    align-items: center;
+    grid-template-columns: repeat(auto-fill , minmax(500px , 1fr));
+}
+.Request_A_Discount .Container > div {
+    z-index: 3;
+    text-align: center;
+}
+.Request_A_Discount .Container > div:first-of-type {
+    background-color: rgba(27, 87, 109, 0.9);
+}
+.Request_A_Discount .Container > div > h2  {
+    margin: 90px  auto  ;
+    font-size: 40px ;
+}
+.Request_A_Discount .Container > div > p {
+    line-height: 2.5;
+    padding: auto 45px;
+}
+.Request_A_Discount .Container > div > img {
+    width: 60%;
+    width: 50%;
+    margin: 13% 20%;
+}
+.Request_A_Discount .Container > div:last-of-type {
+    background-color: rgb(253, 253, 253 , 0.7);
+    display: flex;
+    flex-direction: column;
+}
+.Request_A_Discount .Container > div > form {
+    display: flex;
+    flex-direction: column;
+}
+.Request_A_Discount .Container > div > form > input ,
+.Request_A_Discount .Container > div > form > textarea {
+    width: 50%;
+    padding: 2% ;
+    margin: 3% 23%;
+    border: none;
+    background-color: var(--DarkBackGroundColor);
+}
+.Request_A_Discount .Container > div > form > textarea {
+    height: 239px;
+}
+.Request_A_Discount .Container > div > form > input:last-of-type {
+    background-color:  var(--SecondColor);
+    color: var(--ThirdColor);
+    font: 20px bolder;
+}
+/* End Of Request_A_Discount Formating */
+/* Start Of Footer Formating*/
+footer {
+    background-color: var(--MainColor);
+    color: var(--SecondColor);
+    padding-top: 50px;
+}
+footer .Container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 40px;
+}
+footer .Container > div > ul {
+    list-style-type: none;
+}
+footer .Container > div > h1 {
+    font-size:  45px ;
+    font-weight: bold;
+    margin: 20px auto 20px 20px ;
+}
+footer .Container > div > a > i {
+    width: 60px;
+    height: 50px;
+    background-color: var(--FourtyColor);
+    text-align: center;
+    color: var(--MainColor);
+    margin: auto auto auto 20px;
+    transition: var(--Transtion);
+    padding-top: 17px;
+}
+footer .Container > div > a > i:hover {
+    color: var(--ThirdColor);
+    background-color: var(--SecondColor);
+}
+footer .Container > div > p {
+    color: var(--FourtyColor);
+    margin: 20px;
+    line-height: 1.5;
+}
+footer .Container > div> ul{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+footer .Container > div> ul > li  {
+    margin: 10px auto ;
+    color: var(--SecondColor);
+}
+footer .Container > div> ul > li  > a {
+    text-decoration: none;
+    color: var(--SecondColor);
+}
+footer .Container > div> ul > li  > i {
+    float: left;
+    width: 30%;
+    color: var(--FourtyColor);
+    transition: var(--Transtion);
+}
+footer .Container > div> ul > li  > i:hover {
+    color: var(--ThirdColor);
+}
+footer .Container > div> ul > li  > p {
+    float: left;
+    width: 70%;
+}
+footer .Container > div > img {
+    width: 80px;
+    height: 80px;
+}
+/* End Of Footer Formating*/
